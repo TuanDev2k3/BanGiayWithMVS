@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HoaDon>
+<div style="margin-top:160px; margin-bottom: 50px;" class="container">
+	<div class="row justify-content-center">
+		<div class="col-lg-6 text-center">
+			<div class="section-title">
+				<h1 style="font-size:35px; font-family:'Roboto', sans-serif; font-weight: 500;">Quản Lý Đơn Hàng</h1>
+			</div>
+		</div>
+	</div>
+	<a asp-controller="Home" asp-action="Index" class="btn btn-secondary mb-3">Home</a>
+
+	<table class="table ">
+		<thead>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>Address</th>
+			<th>OrderStatus</th>
+			<th>Total</th>
+			<th></th>
+			<th></th>
+		</thead>
+
+		<tbody>
+			@foreach (var item in @Model)
+			{
+				<tr>
+					<td>@item.ID</td>
+					<td>@item.Name</td>
+					<td>@item.PhoneNumber</td>
+					<td>@item.Address</td>
+					<td class="text-success">@item.OrderStatus</td>
+					<td class="text-danger">$@item.Total</td>
+					<td>
+						<a asp-action="DetailHD" asp-route-id="@item.ID">Chi tiết đơn hàng</a>
+					</td>
+					<td>
+						<a asp-action="Detele" asp-route-id="@item.ID" class="btn btn-danger">Hủy đơn</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+

@@ -1,0 +1,83 @@
+﻿@model GioHangViewModel
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Checkout</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="single-product.html">Checkout</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Checkout Area =================-->
+<section class="checkout_area section_gap container">
+    <form class="row contact_form" method="post" asp-action="ThanhToan">
+        <div class="billing_details">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Billing Details</h3>
+               
+                        <div class="col-md-5 form-group p_star">
+                            <h6 class="text-warning">Name</h6>
+                            <input type="text" class="form-control" placeholder="Full name" asp-for="@Model.HoaDon.Name">
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                        <h6 class="text-warning">Phone</h6>
+                            <input type="text" class="form-control" id="first" placeholder="Phone" asp-for="@Model.HoaDon.PhoneNumber">
+                        </div>
+                        
+                        <div class="col-md-5 form-group p_star">
+                        <h6 class="text-warning">Email</h6>
+                            <input type="text" class="form-control" id="first" placeholder="Email" asp-for="@Model.HoaDon.ApplicationUser.Email">
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                        <h6 class="text-warning">Address</h6>
+                            <input type="text" class="form-control" id="first" placeholder="Address" asp-for="@Model.HoaDon.Address">
+                        </div>
+                        
+                        
+                        <div class="col-md-12 form-group">
+                        <h3 class="text-warning">Note</h3>
+                        <textarea class="form-control" name="message" id="message" rows="1" placeholder="More Notes"></textarea>
+                        </div>
+                   
+                </div>
+                <div class="col-lg-4">
+                    <div class="order_box">
+                        <h2>Your Order</h2>
+                        <ul class="list">
+                            <li><a href="#">Product <span>Total</span></a></li>
+                            @foreach (var item in Model.DsGioHang)
+                            {
+                                <li><a href="#">@item.Product.Name <span class="middle">x @item.Quantity</span> <span class="last">$@item.ProductPrice</span></a></li>
+                            }
+                        </ul>
+                        <ul class="list list_2">
+                            <li><a href="#">Subtotal <span>$@Model.HoaDon.Total</span></a></li>
+                            <li><a href="#">Shipping <span>$0</span></a></li>
+                            <li><a href="#">Total <span class="text-danger">$@Model.HoaDon.Total</span></a></li>
+                        </ul>
+                        <div class="payment_item">
+                            <div class="radion_btn">
+                                <input type="radio" id="f-option5" name="selector">
+                                <label for="f-option5">Thanh toán khi nhận hàng</label>
+                                <div class="check"></div>
+                            </div>
+                            <p>
+                                Đơn hàng sẽ giao vào giờ hành chánh. Vui lòng chờ điện thoại từ nhân viên giao hàng.
+                            </p>
+                        </div>
+                        
+                        <button type="submit" class="primary-btn" style="border: none;">Thanh toán</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </form>
+</section>

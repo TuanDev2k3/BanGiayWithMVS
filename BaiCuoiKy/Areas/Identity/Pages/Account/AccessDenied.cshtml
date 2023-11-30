@@ -1,0 +1,10 @@
+﻿@page
+@model AccessDeniedModel
+
+<header style="margin-top: 160px; font-family: 'Poppins'; height: 60vh;" class="container">
+    <h1 class="text-danger" style="font-weight: 600">Bạn không có quyền truy cập trang Admin</h1>
+    <h4 class="text-secondary">Vui lòng sử dụng đúng tài khoản cho phép !!</h4>
+
+    <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-success my-3">Home</a>
+    @* <a class="btn btn-primary my-4" asp-area="Customer" asp-controller="Home" asp-action="Index">Home !!</a> *@
+</header>

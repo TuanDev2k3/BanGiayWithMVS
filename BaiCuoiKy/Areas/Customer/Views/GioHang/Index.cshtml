@@ -1,0 +1,108 @@
+﻿@model GioHangViewModel
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a asp-controller="Home" asp-action="Index">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Cart Area =================-->
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.DsGioHang)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex" style="width:120px; height:100px;">
+                                            <img src="@item.Product.ImageURL" style="width:100%; object-fit:cover" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>@item.Product.Name</h5>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5>$@item.Product.Price</h5>
+                                </td>
+                                <td>
+                                    <div class="product_count" style="display: flex; align-items: center;">
+                                        <a asp-action="Giam" asp-route-giohangId="@item.Id"
+                                           class="increase items-count mr-2" type="button">
+                                            <i class="fas fa-minus"></i>
+                                        </a>
+                                        <input type="text" id="sst"  value="@item.Quantity" title="Quantity:"
+                                               class="d-inline-block text-center pl-0" style="width: 40px">
+                                        
+                                         <a asp-action="Tang" asp-route-giohangId="@item.Id"
+                                               class="reduced items-count ml-2" type="button">
+                                              <i class="fas fa-plus"></i>
+                                         </a>
+                                        
+                                        
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5 class="text-success">$@item.ProductPrice</h5>
+                                </td>
+                                <td>
+                                    <a asp-action="Xoa" asp-route-giohangId="@item.Id"><i class="bx bx-trash" style="font-size: 20px"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <h4>Subtotal: </h4>
+                            </td>
+                            <td>
+                                <h4 class="text-danger">$@Model.HoaDon.Total</h4>
+                            </td>
+                        </tr>
+                        <tr class="bottom_button">
+                            <td>
+                                
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <div class="cupon_text d-flex align-items-center justify-content-between">
+                                    <a asp-controller="Home" asp-action="Product" class="primary-btn" >Tiếp tục mua sắm</a>
+									<a asp-controller="GioHang" asp-action="ThanhToan" class="primary-btn">Thanh Toán</a>
+                                </div>
+                            </td>
+                        </tr>
+                       
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Cart Area =================-->

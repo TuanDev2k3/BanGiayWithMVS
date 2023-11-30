@@ -1,0 +1,43 @@
+﻿@model IEnumerable<HoaDon>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Order of you</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#">Order</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<table class="table container mb-5">
+	<thead>
+	<th>ID</th>
+	<th>Name</th>
+	<th>Phone</th>
+	<th>Address</th>
+	<th>OrderStatus</th>
+	<th>Total</th>
+	<th></th>
+	<th></th>
+	</thead>
+
+	<tbody>
+		@foreach (var item in @Model)
+		{
+			<tr>
+				<td>@item.ID</td>
+				<td>@item.Name</td>
+				<td>@item.PhoneNumber</td>
+				<td>@item.Address</td>
+				<td class="text-success">@item.OrderStatus</td>
+				<td class="text-danger">$@item.Total</td>
+				<td>
+					<a asp-action="Detele_Order" asp-route-id="@item.ID" class="text-primary">Hủy</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

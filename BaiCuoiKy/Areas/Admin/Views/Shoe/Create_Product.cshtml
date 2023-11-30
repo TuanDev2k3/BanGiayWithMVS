@@ -1,0 +1,30 @@
+﻿@model Product
+<div style="display:flex; margin: 150px auto;">
+    <div class=" container">
+        <h3>Thêm Giày </h3>
+        <form method="post">
+            <label asp-for="Name">Tên Loại Giày </label>
+            <input asp-for="Name" type="text" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"> </span>
+
+            <label asp-for="Price">Giá Tiền </label>
+            <input asp-for="Price" type="text" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"> </span>
+
+            <label asp-for="ImageURL">Hình ảnh</label>
+            <input asp-for="ImageURL" type="text" class="form-control" />
+            <span asp-validation-for="ImageURL" class="text-danger"></span>
+
+            <label asp-for="Descride">Mô tả</label>
+            <input asp-for="Descride" type="text" class="form-control" />
+            <span asp-validation-for="Descride" class="text-danger"></span>
+
+            <button type="submit" class="btn btn-primary mt-3">Thêm mới</button>
+            <a asp-action="Home" class="btn btn-danger mt-3">Cancel</a>
+        </form>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,84 @@
+﻿@page
+@model RegisterModel
+<!-- Start Banner Area -->
+
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Login/Register</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html">Login/Register</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="~/img/login.jpg" alt="">
+                    <div class="hover">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <h3>REGISTRATION</h3>
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Name" class="form-control shadow-none" style="border:none;width:70%; margin:0 auto;" autocomplete="username" aria-required="true" placeholder="Your Name" />
+                            <span asp-validation-for="Input.Name" class="text-danger"></span>
+                            <hr style="margin-top:5px; border-bottom: 0.5px solid #aaa;width:70%" />
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Phone" type="text" class="form-control shadow-none" style="border:none;width:70%; margin:0 auto;" aria-required="true" placeholder="Phone" />
+                            <span asp-validation-for="Input.Phone" class="text-danger"></span>
+                            <hr style="margin-top:5px; border-bottom: 0.5px solid #aaa;width:70%" />
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Address" class="form-control shadow-none" style="border:none;width:70%; margin:0 auto;" aria-required="true" placeholder="Address" />
+                            <span asp-validation-for="Input.Address" class="text-danger"></span>
+                            <hr style="margin-top:5px; border-bottom: 0.5px solid #aaa;width:70%" />
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Email" class="form-control shadow-none" style="border:none;width:70%; margin:0 auto;" aria-required="true" placeholder="Your Email" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            <hr style="margin-top:5px; border-bottom: 0.5px solid #aaa;width:70%" />
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Password" class="form-control shadow-none" style="border:none;width:70%; margin:0 auto;" autocomplete="new-password" aria-required="true" placeholder="Password" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            <hr style="margin-top:5px; border-bottom: 0.5px solid #aaa;width:70%" />
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.ConfirmPassword" class="form-control shadow-none" style="border:none;width:70%; margin:0 auto;" autocomplete="new-password" aria-required="true" placeholder="Confirm password" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            <hr style="margin-top:5px; border-bottom: 0.5px solid #aaa;width:70%" />
+                        </div>
+                        <button id="registerSubmit" type="submit" style="width: 70%;border:none;line-height:44px;color:white; background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);">Register</button>
+                        <div>
+                            <div style="display:flex;justify-content:center; margin-top:10px">
+                                <p style="margin-right:5px">Already have an account?</p>
+                                <p>
+                                    <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" class="text-primary">Login</a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Login Box Area =================-->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    }

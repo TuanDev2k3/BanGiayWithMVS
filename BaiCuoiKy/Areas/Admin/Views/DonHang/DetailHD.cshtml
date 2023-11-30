@@ -1,0 +1,39 @@
+﻿@* @model ChiTietHoaDon *@
+<section class="banner-area organic-breadcrumb mt-5">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Shopping Details</h1>
+                <nav class="d-flex align-items-center">
+                    <a asp-controller="Home" asp-action="Index">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#">DetailHD</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="col-lg-6 mx-auto my-5">
+    <div class="order_box">
+        <h2>Your Order</h2>
+        <ul class="list">
+            <li><a href="#" style="font-weight: bold">Product <span>Total</span></a></li>
+            @foreach (var item in @ViewBag.Donhang)
+            {
+                <li><a href="#">@item.Product.Name <span class="middle">x @item.Quantity</span> <span class="last">$@item.ProductPrice</span></a></li>
+            }
+            <li><a href="#" style="font-weight: bold; color: red; font-size: 16px;">Totals <span>$@ViewBag.Total</span></a></li>
+        </ul>
+        <div class="payment_item">
+            <div class="radion_btn">
+                <input type="radio" id="f-option5" name="selector" checked="true">
+                <label for="f-option5">Thanh toán khi nhận hàng</label>
+                <div class="check"></div>
+            </div>
+            <p>
+                Đơn hàng sẽ giao vào giờ hành chánh. Vui lòng chờ điện thoại từ nhân viên giao hàng.
+            </p>
+        </div>
+         <a asp-action="Index" class="btn btn-success">Cancel</a>
+    </div>
+</div>

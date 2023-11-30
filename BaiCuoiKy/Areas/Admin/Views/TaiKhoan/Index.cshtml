@@ -1,0 +1,46 @@
+﻿<div style="margin-top:160px; margin-bottom: 50px;" class="container">
+	<div class="row justify-content-center">
+		<div class="col-lg-6 text-center">
+			<div class="section-title">
+				<h1 style="font-size:35px; font-family:'Roboto', sans-serif; font-weight: 500;">Quản Lý Tài Khoản</h1>
+			</div>
+		</div>
+	</div>
+	<a asp-controller="Home" asp-action="Index" class="btn btn-secondary mb-3">Home</a>
+
+	<table class="table ">
+		<thead>
+			<th>Ten</th>
+			<th>UserName</th>
+			<th>Phone</th>
+			<th>Address</th>
+			<th>Chức năng</th>
+		</thead>
+
+		<tbody>
+			@foreach (var item in @ViewBag.TaiKhoan)
+			{
+				<tr>
+					<td>@item.Name</td>
+					<td>@item.UserName</td>
+					<td>@item.Phone</td>
+					<td>@item.Address</td>
+					@if (@item.Email == "admin@gmail.com")
+					{
+						<td>
+							<a class="btn btn-success text-white" title="Tài khoản Admin">Admin</a>
+						</td>
+					}
+					else
+					{
+						<td>
+							@* <a asp-action="Block" class="btn btn-success mx-1">Khóa</a> *@ 
+							<a asp-action="Detele" asp-route-id="@item.Id" class="btn btn-danger" title="Xóa tài khoản">Xóa</a>
+						</td>
+					}
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
